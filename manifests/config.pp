@@ -15,7 +15,7 @@ class sudo::config {
     $sudo::params::config:
       ensure  => present,
       mode    => '0440',
-      content => template ('sudonew/sudoers.erb');
+      content => template ('sudo/sudoers.erb');
 
     $sudo::params::binary:
       ensure => file,
