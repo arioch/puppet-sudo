@@ -1,4 +1,4 @@
-# Class: sudonew
+# Class: sudo
 #
 # This class installs sudo
 #
@@ -41,7 +41,7 @@
 #
 # Known limitations:
 #
-class sudonew {
+class sudo {
   class { 'sudo::params': }
   class { 'sudo::install': }
   class { 'sudo::config': }
