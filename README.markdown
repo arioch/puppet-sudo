@@ -1,31 +1,32 @@
 Sample Usage:
 --
+
     sudonew::user {
-        'foobar':
-            ensure     => present,
-            #sudo_auth => 'NOPASSWD:'; # default: (ALL)
+      'foobar':
+          ensure     => present,
+          #sudo_auth => 'NOPASSWD:'; # default: (ALL)
 
     sudonew::group {
-        'wheel':
-            ensure     => present;
-            #sudo_auth => 'NOPASSWD:';  # default: (ALL)
+      'wheel':
+          ensure     => present;
+          #sudo_auth => 'NOPASSWD:';  # default: (ALL)
     }
 
     sudonew::alias {
-        'ADMINS':
-            ensure          => present,
-            sudo_alias_type => 'User_Alias',
-            sudo_alias      => 'jsmith, mikem';
+      'ADMINS':
+          ensure          => present,
+          sudo_alias_type => 'User_Alias',
+          sudo_alias      => 'jsmith, mikem';
 
-        'FILESERVERS':
-            ensure          => present,
-            sudo_alias_type => 'Host_Alias',
-            sudo_alias      => 'fs1, fs2';
+      'FILESERVERS':
+          ensure          => present,
+          sudo_alias_type => 'Host_Alias',
+          sudo_alias      => 'fs1, fs2';
 
-        'SERVICES':
-            ensure          => present,
-            sudo_alias_type => 'Cmnd_Alias',
-            sudo_alias      => '/sbin/service, /sbin/chkconfig';
+      'SERVICES':
+          ensure          => present,
+          sudo_alias_type => 'Cmnd_Alias',
+          sudo_alias      => '/sbin/service, /sbin/chkconfig';
     }
 
 Tested on
