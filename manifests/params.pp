@@ -2,14 +2,15 @@
 #
 #
 class sudo::params {
-  $user    = 'root'
-  $group   = 'root'
-  $pkg     = 'sudo'
-  $confdir = '/etc/sudoers.d'
-  $config  = '/etc/sudoers'
+  $config_dir   = '/etc/sudoers.d'
+  $config_group = 'root'
+  $config_main  = '/etc/sudoers'
+  $config_user  = 'root'
+  $pkg_ensure   = 'present'
+  $pkg_name     = 'sudo'
 
   case $::operatingsystem {
-    'debian', 'ubuntu': {
+    'Debian', 'Ubuntu': {
       $binary  = '/usr/bin/sudo'
     }
 
@@ -18,7 +19,8 @@ class sudo::params {
     }
 
     default: {
-      fail 'Operating system not supported yet.'
+      fail "Operating system ${::operatingsystem} is not supported."
     }
   }
 }
+

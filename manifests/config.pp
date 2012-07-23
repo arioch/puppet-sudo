@@ -3,22 +3,23 @@
 #
 class sudo::config {
   File {
-    owner => $sudo::params::user,
-    group => $sudo::params::group,
+    owner => $sudo::config_user,
+    group => $sudo::config_group,
   }
 
   file {
-    $sudo::params::confdir:
+    $sudo::config_dir:
       ensure => directory,
-      mode   => '0750';
+      mode   => '0755';
 
-    $sudo::params::config:
+    $sudo::config_main:
       ensure  => present,
       mode    => '0440',
-      content => template ('sudo/sudoers.erb');
+      content => template('sudo/sudoers.erb');
 
-    $sudo::params::binary:
+    $sudo::binary:
       ensure => file,
       mode   => '4755';
   }
 }
+
