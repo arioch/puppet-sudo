@@ -19,17 +19,17 @@ define sudo::alias (
       case $sudo_alias_type {
         'User_Alias': {
           file { "${sudo::config_dir}/alias_user_${name}":
-            ensure  => file,
+            ensure  => present,
             mode    => '0440',
-            content => "${alias_type} ${name} = ${sudo_alias_type}";
+            content => "${sudo_alias_type} ${name} = ${sudo_alias}";
           }
         }
 
         'Host_Alias': {
           file { "${sudo::config_dir}/alias_host_${name}":
-            ensure  => file,
+            ensure  => present,
             mode    => '0440',
-            content => "${alias_type} ${name} = ${sudo_alias_type}";
+            content => "${sudo_alias_type} ${name} = ${sudo_alias}";
           }
         }
 
@@ -37,7 +37,7 @@ define sudo::alias (
           file { "${sudo::config_dir}/alias_cmnd_${name}":
             ensure  => file,
             mode    => '0440',
-            content => "${alias_type} ${name} = ${sudo_alias_type}";
+            content => "${sudo_alias_type} ${name} = ${sudo_alias}";
           }
         }
 

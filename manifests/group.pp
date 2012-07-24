@@ -13,7 +13,7 @@ define sudo::group (
   case $ensure {
     /present/: {
       file { "${sudo::config_dir}/group_${name}":
-        ensure  => file,
+        ensure  => present,
         mode    => '0440',
         content => "%${name} ${sudo_alias} = ${sudo_auth} ${sudo_cmd}";
       }
