@@ -14,7 +14,7 @@ class sudo::params {
       $binary  = '/usr/bin/sudo'
     }
 
-    'RedHat', 'CentOS': {
+    'RedHat', 'CentOS', 'Scientific', 'OEL', 'Amazon': {
       $binary  = '/usr/bin/sudo'
     }
 
