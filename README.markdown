@@ -4,6 +4,7 @@
       'foobar':
         ensure      => present,
         # sudo_auth => 'NOPASSWD:';  # default: (ALL)
+    }
 
     sudo::group {
       'wheel':
